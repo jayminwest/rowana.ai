@@ -153,7 +153,8 @@ export const MatrixText = ({
       aria-label="Matrix text animation"
     >
       <div className="flex items-center justify-center">
-        <div className="flex flex-wrap items-center justify-center">
+        {/* Changed items-center to items-baseline */}
+        <div className="flex flex-wrap items-baseline justify-center">
           {letters.map((letter, index) => (
             <motion.div
               key={`${index}-${letter.char}`}
