@@ -2,27 +2,41 @@
   <img src="public/RowanaLogoWhiteBG.png" alt="Rowana Logo" width="200"/>
 </p>
 
-# Rowana Project
+# rowana: tell ai what's what.
 
-Welcome to the Rowana project! This repository contains the source code for the Rowana application.
+<p align="center">
+  <i>ai is the new front door. is yours locked?</i>
+</p>
+
+Welcome to the Rowana project! This repository contains the source code for the Rowana website and potentially related tooling.
 
 ## Description
 
-(Add a brief description of the project here.)
+Without the right signals, LLMs might ignore your site or misrepresent your product. Don't let a confused AI bury your brand or become your unintended spokesperson.
 
-## Getting Started
+Rowana is the build-time NPM tool that adds the structured data (like Schema.org) AI desperately needs to understand your product. No more hoping LLMs get it right—**make them get it right.**
+
+This repository contains the landing page/website for Rowana. The core tool can be found at [rowana-ai/rowana-core](https://github.com/rowana-ai/rowana-core).
+
+## Key Features (of the core tool)
+
+*   **Accuracy:** Force AI to represent your product correctly.
+*   **Control:** You built it, you define it. Take back control.
+*   **Less Headache:** Set it up once, integrate it into your build, and forget about it.
+
+## Getting Started (This Website)
 
 ### Prerequisites
 
-- Node.js (version X.X.X or higher)
-- pnpm (version X.X.X or higher)
+- Node.js (e.g., v18 or higher)
+- pnpm (e.g., v8 or higher)
 
-### Installation
+### Installation (This Website)
 
-1. Clone the repository:
+1. Clone this repository:
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/rowana-ai/rowana-landing.git # Assuming this is the repo name
+   cd rowana-landing
    ```
 2. Install dependencies:
    ```bash
@@ -39,9 +53,9 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Building for Production
+## Building the Website for Production
 
-To build the application for production, run:
+To build the website for production, run:
 
 ```bash
 pnpm build
@@ -54,12 +68,19 @@ pnpm build
 - TypeScript
 - Tailwind CSS
 - Shadcn UI
-- Supabase (if applicable)
+
+## How Rowana Works (The Core Tool)
+
+1.  **Install the package:** `npm install @rowana/core` (or `pnpm add @rowana/core`)
+2.  **Set up your config:** Create a `rowana.config.js` (or similar) to define your organization, product details, etc.
+3.  **Hook into your build:** Add `rowana generate` to your build script (e.g., `"build": "rowana generate && next build"`).
+
+Rowana reads your config and generates the necessary structured data, injecting it into your site during the build process.
 
 ## Contributing
 
-(Add guidelines for contributing to the project, if applicable.)
+Contributions are welcome! Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file (if it exists) or open an issue to discuss potential changes.
 
 ## License
 
-(Specify the license for the project, e.g., MIT License.)
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details (if it exists).
