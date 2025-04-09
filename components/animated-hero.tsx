@@ -82,7 +82,7 @@ export default function AnimatedHero() {
               letterAnimationDuration={1000}
               letterInterval={120}
               delayBetweenPasses={3000} // 3 second delay between passes
-              className="h-auto"
+              // className="h-auto" // Removed h-auto
             />
           </div>
           <p
