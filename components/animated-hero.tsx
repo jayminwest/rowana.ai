@@ -1,7 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image" // Import the Image component
 import { MatrixText } from "@/components/ui/matrix-text"
+import RowanaLogo from "/public/RowanaLogoSmall.png" // Import the logo image
 
 export default function AnimatedHero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -58,10 +60,20 @@ export default function AnimatedHero() {
             transition: "opacity 0.8s ease-out, transform 0.8s ease-out",
           }}
         >
+          {/* Add Logo Image here */}
+          <div className="flex justify-center mb-8">
+            <Image
+              src={RowanaLogo}
+              alt="Rowana Logo"
+              width={100} // Adjust size as needed
+              height={100} // Adjust size as needed
+              priority // Load the logo early as it's in the hero
+            />
+          </div>
           <div className="mb-6">
             <MatrixText
               text="control how ai sees your brand"
-              color="#6D28D9" // Violet-600 color to match buttons
+              color="#6D28D9" // Violet-600 color to match buttons, consider using theme variable like text-primary
               initialDelay={500}
               letterAnimationDuration={1000}
               letterInterval={120}
