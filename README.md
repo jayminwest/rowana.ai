@@ -81,8 +81,8 @@ Rowana reads your config and generates the necessary structured data, injecting 
 
 ## Contributing
 
-Contributions are welcome! Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file (if it exists) or open an issue to discuss potential changes.
+Contributions are not currently accepted for this repository. Please see the [rowana-core repository](https://github.com/rowana-ai/rowana-core) if you are interested in contributing to the core tool.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details (if it exists).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
