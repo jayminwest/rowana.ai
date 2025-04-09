@@ -166,7 +166,7 @@ export const MatrixText = ({
                 ease: "easeInOut",
               }}
               style={{
-                display: "inline-block",
+                // display: "inline-block", // Removed to allow natural wrapping
                 fontVariantNumeric: "tabular-nums",
               }}
             >
