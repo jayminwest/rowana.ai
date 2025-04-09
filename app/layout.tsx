@@ -26,7 +26,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark"> {/* Assuming dark theme by default */}
+    // Assuming dark theme by default on the html tag below
+    <html lang="en" className="dark">
       {/* Removed bg-black text-white - handled by theme in globals.css */}
       <body className={`${spaceGrotesk.className}`}>{children}</body>
     </html>
