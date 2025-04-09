@@ -14,9 +14,9 @@ export default function AnimatedHero() {
 
   return (
     <div className="relative overflow-hidden">
-      {/* Animated background - Updated gradient using theme variables */}
+      {/* Animated background - Gradient directly between primary and accent */}
       <div
-        className="absolute inset-0 bg-gradient-to-br from-primary/30 via-background to-accent/20 animate-gradient"
+        className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/20 animate-gradient" // Removed via-background
         style={{ opacity: isVisible ? 1 : 0, transition: "opacity 1s ease-in-out" }}
       />
 
