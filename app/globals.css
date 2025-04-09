@@ -93,13 +93,12 @@
 
 /* Removed duplicated @layer base theme definitions */
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+/* @layer base body rule removed for testing */
+
+/* Apply body styles directly using CSS variables AFTER Tailwind directives */
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
 }
 
 @keyframes fadeIn {

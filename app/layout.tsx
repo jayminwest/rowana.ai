@@ -1,7 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Space_Grotesk } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider" // Import ThemeProvider
+// ThemeProvider import removed for testing
 import "./globals.css"
 
 const spaceGrotesk = Space_Grotesk({
@@ -27,22 +27,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    // Let ThemeProvider manage the class, remove direct className="dark"
-    <html lang="en" suppressHydrationWarning>
+    // Revert to direct dark class, remove ThemeProvider for testing
+    <html lang="en" className="dark">
       {/* Removed bg-black text-white - handled by theme in globals.css */}
-      {/* Temporarily removed spaceGrotesk.className to isolate background issue */}
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark" // Set default theme to dark
-          enableSystem={false} // Disable system preference if you want to force dark
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+      {/* Re-add font class */}
+      <body className={`${spaceGrotesk.className}`}>
+        {children}
       </body>
     </html>
   )
 }
 
 // Removed extra import './globals.css'
+// ThemeProvider import removed for testing
