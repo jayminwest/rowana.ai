@@ -136,11 +136,15 @@ export const MatrixText = ({
         color: gray300Hsl, // Use gray-300 for the flashing matrix chars
         textShadow: `0 2px 4px ${primaryColorHsl}80`, // Keep primary shadow
       },
+      // Use explicit HSL with 0 alpha for transparency, animatable by framer-motion
+      initial: {
+        color: "hsl(var(--foreground) / 0)",
+      },
       normal: {
-        color: 'transparent' // Make final text transparent to inherit parent gradient
+        color: "hsl(var(--foreground) / 0)", // Inherit parent gradient via transparency
       },
     }),
-    [primaryColorHsl, gray300Hsl], // Dependencies updated
+    [primaryColorHsl, gray300Hsl],
   )
 
   return (
