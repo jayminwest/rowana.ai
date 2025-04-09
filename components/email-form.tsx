@@ -83,3 +83,5 @@ export default function EmailForm({ buttonText = "get early access" }: { buttonT
     </div>
   )
 }
+// Need to import cn utility
+import { cn } from "@/lib/utils"
