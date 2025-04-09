@@ -1,7 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image" // Import the Image component
 import { MatrixText } from "@/components/ui/matrix-text"
+import RowanaLogo from "/public/RowanaLogoSmall.png" // Import the logo image
 
 export default function AnimatedHero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -12,16 +14,17 @@ export default function AnimatedHero() {
 
   return (
     <div className="relative overflow-hidden">
-      {/* Animated background */}
+      {/* Animated background - Gradient directly between primary and accent */}
       <div
-        className="absolute inset-0 bg-gradient-to-br from-violet-900/30 via-black to-teal-900/20 animate-gradient"
+        className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/20 animate-gradient" // Removed via-background
         style={{ opacity: isVisible ? 1 : 0, transition: "opacity 1s ease-in-out" }}
       />
 
       {/* Animated grid pattern */}
       <div className="absolute inset-0 opacity-20">
+        {/* Removed single quotes inside url() */}
         <div
-          className="h-full w-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJWNmgydjR6bTAgMjRoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0tNi0yNGgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bS02LTI0aC0ydi00aDJ2NHptMCA2aC0ydi00aDJ2NHptMCA2aC0ydi00aDJ2NHptMCA2aC0ydi00aDJ2NHptLTYtMjRoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0tNi0yNGgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6Ii8+PC9nPjwvZz48L3N2Zz4=')]"
+          className="h-full w-full bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJWNmgydjR6bTAgMjRoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0tNi0yNGgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bS02LTI0aC0ydi00aDJ2NHptMCA2aC0ydi00aDJ2NHptMCA2aC0ydi00aDJ2NHptMCA2aC0ydi00aDJ2NHptLTYtMjRoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0tNi0yNGgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6Ii8+PC9nPjwvZz48L3N2Zz4=)]"
           style={{
             opacity: isVisible ? 1 : 0,
             transition: "opacity 2s ease-in-out",
@@ -30,9 +33,9 @@ export default function AnimatedHero() {
         />
       </div>
 
-      {/* Animated circles */}
+      {/* Animated circles - Use new theme colors */}
       <div
-        className="absolute -top-20 -right-20 w-64 h-64 bg-violet-600/20 rounded-full blur-3xl"
+        className="absolute -top-20 -right-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl" // Use primary color
         style={{
           opacity: isVisible ? 0.3 : 0,
           transition: "opacity 1.5s ease-in-out, transform 10s ease-in-out infinite",
@@ -40,7 +43,7 @@ export default function AnimatedHero() {
         }}
       />
       <div
-        className="absolute -bottom-32 -left-32 w-96 h-96 bg-teal-400/20 rounded-full blur-3xl"
+        className="absolute -bottom-32 -left-32 w-96 h-96 bg-accent/20 rounded-full blur-3xl" // Use accent color
         style={{
           opacity: isVisible ? 0.3 : 0,
           transition: "opacity 1.5s ease-in-out, transform 15s ease-in-out infinite",
@@ -58,15 +61,31 @@ export default function AnimatedHero() {
             transition: "opacity 0.8s ease-out, transform 0.8s ease-out",
           }}
         >
-          <div className="mb-6">
+          {/* Logo and Text Container */}
+          <div className="flex justify-center items-center mb-8">
+            <Image
+              src={RowanaLogo}
+              alt="Rowana Logo"
+              width={810} // Intrinsic width
+              height={646} // Intrinsic height
+              className="w-20 h-auto sm:w-24" // Control displayed size, maintain aspect ratio
+              priority // Load the logo early as it's in the hero
+            />
+            {/* Add Rowana Text Next to Logo */}
+            <span className="ml-3 text-3xl font-bold text-secondary-foreground">
+              Rowana
+            </span>
+          </div>
+          {/* Increased bottom margin and added vertical padding to prevent text overlap */}
+          <div className="mb-8 py-2"> {/* Added py-2 and changed mb-6 to mb-8 */}
             <MatrixText
               text="control how ai sees your brand"
-              color="#6D28D9" // Violet-600 color to match buttons
+              // color prop removed, gradient applied within MatrixText
               initialDelay={500}
               letterAnimationDuration={1000}
               letterInterval={120}
               delayBetweenPasses={3000} // 3 second delay between passes
-              className="h-auto"
+              // className="h-auto" // Removed h-auto
             />
           </div>
           <p

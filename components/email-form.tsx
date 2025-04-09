@@ -1,24 +1,44 @@
 "use client"
 
-import type React from "react"
+"use client"
 
+import type React from "react"
 import { useState } from "react"
+import { supabase } from "@/lib/supabase"
+// Removed useToast import
+
+// Define possible submission statuses
+type SubmissionStatus = "idle" | "submitting" | "success"
 
 export default function EmailForm({ buttonText = "get early access" }: { buttonText?: string }) {
   const [email, setEmail] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [message, setMessage] = useState("")
+  // Replace isSubmitting with submissionStatus
+  const [submissionStatus, setSubmissionStatus] = useState<SubmissionStatus>("idle")
+  // Removed useToast hook call
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
+    setSubmissionStatus("submitting") // Set status to submitting
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setMessage("Thanks! We'll be in touch soon.")
+    try {
+      const { error } = await supabase
+        .from('email_signups')
+        .insert([{ email }])
+
+      if (error) throw error
+
+      // On success, set status to success and clear email
+      setSubmissionStatus("success")
       setEmail("")
-    }, 1000)
+    } catch (error: unknown) {
+      // Also set status to success on error/duplicate, clear email
+      console.error('Email submission error (suppressed in UI):', error);
+      setSubmissionStatus("success")
+      setEmail("")
+      // Removed toast call
+    }
+    // Removed finally block, status handles UI state
+    // Removed extra closing brace here
   }
 
   return (
@@ -34,13 +54,34 @@ export default function EmailForm({ buttonText = "get early access" }: { buttonT
         />
         <button
           type="submit"
-          disabled={isSubmitting}
-          className="px-6 py-3 bg-violet-600 hover:bg-violet-700 rounded-lg font-medium transition-all duration-300 disabled:opacity-70 transform hover:scale-105"
+          disabled={submissionStatus !== "idle"} // Disable if submitting or success
+          className={cn(
+            "px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-center", // Base styles
+            submissionStatus === "idle" && "bg-violet-600 hover:bg-violet-700 transform hover:scale-105", // Idle state styles
+            submissionStatus === "submitting" && "bg-violet-600 opacity-70 cursor-not-allowed", // Submitting state styles
+            submissionStatus === "success" && "bg-green-600 cursor-not-allowed", // Success state styles (green background)
+          )}
         >
-          {isSubmitting ? "submitting..." : buttonText}
+          {submissionStatus === "idle" && buttonText}
+          {submissionStatus === "submitting" && "submitting..."}
+          {submissionStatus === "success" && (
+            // Simple Checkmark SVG
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 text-white" // Ensure icon is visible on green bg
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={3} // Make checkmark thicker
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          )}
         </button>
       </form>
-      {message && <p className="mt-3 text-teal-400 animate-fade-in">{message}</p>}
+      {/* Remove the message paragraph */}
     </div>
   )
 }
+// Need to import cn utility
+import { cn } from "@/lib/utils"
