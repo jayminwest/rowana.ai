@@ -2,10 +2,15 @@
 
 import { useState, useEffect } from "react" // Import hooks
 import Image from "next/image"
+import Link from "next/link" // Import Link for external navigation (or use <a>)
+import { Github, Linkedin } from "lucide-react" // Import Github and Linkedin icons
 import EmailForm from "@/components/email-form"
 import AnimatedHero from "@/components/animated-hero"
 import AnimatedSection from "@/components/animated-section"
+import { Button } from "@/components/ui/button" // Import the Button component - Keep for footer button
 // RowanaLogo import removed, will be used in AnimatedHero
+
+const GITHUB_URL = "https://github.com/rowana-ai/rowana-core" // Define the repo URL - Keep for footer button
 
 export default function Home() {
   const [isFormVisible, setIsFormVisible] = useState(false)
@@ -18,12 +23,15 @@ export default function Home() {
 
   return (
     // Removed explicit bg-background, should inherit from body via globals.css
+    // Removed relative positioning needed for old top button
     <main className="min-h-screen">
+      {/* Top GitHub Star Button moved into AnimatedHero */}
+
       {/* Hero Section */}
       <section className="relative">
         <AnimatedHero />
         {/* Logo moved into AnimatedHero component */}
-        {/* Further increased negative margin to move form up */}
+        {/* Negative margin remains unchanged as button is now inside Hero */}
         {/* Apply animation styles to this container */}
         <div
           className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto -mt-32 sm:-mt-36 pb-20 transition-all duration-1000 ease-out" // Added transition classes
@@ -195,10 +203,40 @@ module.exports = {
 
       {/* Footer - Consistent padding */}
       <footer className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-border"> {/* Use border-border */}
-        <div className="text-center">
-          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} rowana.ai - all rights reserved</p> {/* Made text slightly smaller */}
-        </div>
-      </footer>
+        {/* Use flex to align items */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground text-center sm:text-left">© {new Date().getFullYear()} rowana.ai - all rights reserved</p> {/* Made text slightly smaller */}
+
+          {/* Social Links Container */}
+          <div className="flex items-center gap-2"> {/* Group social icons */}
+            {/* LinkedIn Link */}
+            <a
+              href="https://www.linkedin.com/company/rowana-ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Rowana.ai on LinkedIn"
+            >
+              {/* Use secondary variant for a filled look */}
+              <Button variant="secondary" size="icon">
+                <Linkedin className="h-5 w-5 text-secondary-foreground" /> {/* Use secondary-foreground for contrast */}
+              </Button>
+            </a>
+
+            {/* GitHub Star Button - Bottom */}
+            <a
+              href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Star rowana-ai/rowana-core on GitHub"
+          >
+            <Button variant="outline" size="sm" className="flex items-center gap-2">
+              <Github className="h-4 w-4" />
+              <span>Star</span>
+            </Button>
+          </a>
+        </div> {/* End Social Links Container */}
+      </div>
+    </footer>
     </main>
   )
 }
