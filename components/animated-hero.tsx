@@ -1,9 +1,16 @@
 "use client"
 
+"use client"
+
 import { useEffect, useState } from "react"
 import Image from "next/image" // Import the Image component
+import Link from "next/link" // Import Link for external navigation (or use <a>)
+import { Github } from "lucide-react" // Import the Github icon
+import { Button } from "@/components/ui/button" // Import the Button component
 import { MatrixText } from "@/components/ui/matrix-text"
 import RowanaLogo from "/public/RowanaLogoSmall.png" // Import the logo image
+
+const GITHUB_URL = "https://github.com/rowana-ai/rowana-core" // Define the repo URL
 
 export default function AnimatedHero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -75,6 +82,21 @@ export default function AnimatedHero() {
             <span className="ml-3 text-3xl font-bold text-secondary-foreground">
               Rowana
             </span>
+          </div>
+          {/* GitHub Star Button - Added below Logo/Text */}
+          <div className="flex justify-center mt-4 mb-8"> {/* Centering container with margin */}
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Star rowana-ai/rowana-core on GitHub"
+            >
+              {/* Using default size, outline variant */}
+              <Button variant="outline" className="flex items-center gap-2">
+                <Github className="h-5 w-5" /> {/* Slightly larger icon */}
+                <span>Star on GitHub</span> {/* More descriptive text */}
+              </Button>
+            </a>
           </div>
           {/* Increased bottom margin and added vertical padding to prevent text overlap */}
           <div className="mb-8 py-2"> {/* Added py-2 and changed mb-6 to mb-8 */}

@@ -7,10 +7,10 @@ import { Github } from "lucide-react" // Import the Github icon
 import EmailForm from "@/components/email-form"
 import AnimatedHero from "@/components/animated-hero"
 import AnimatedSection from "@/components/animated-section"
-import { Button } from "@/components/ui/button" // Import the Button component
+import { Button } from "@/components/ui/button" // Import the Button component - Keep for footer button
 // RowanaLogo import removed, will be used in AnimatedHero
 
-const GITHUB_URL = "https://github.com/rowana-ai/rowana-core" // Define the repo URL
+const GITHUB_URL = "https://github.com/rowana-ai/rowana-core" // Define the repo URL - Keep for footer button
 
 export default function Home() {
   const [isFormVisible, setIsFormVisible] = useState(false)
