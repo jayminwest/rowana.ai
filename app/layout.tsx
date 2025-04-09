@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Space_Grotesk } from "next/font/google"
 // ThemeProvider import removed again
 import "./globals.css"
+import { Toaster } from "@/components/ui/sonner" // Import Toaster
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
