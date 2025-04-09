@@ -1,6 +1,8 @@
+import Image from "next/image" // Import the Image component
 import EmailForm from "@/components/email-form"
 import AnimatedHero from "@/components/animated-hero"
 import AnimatedSection from "@/components/animated-section"
+import RowanaLogo from "/public/RowanaLogoSmall.png" // Import the logo image
 
 export default function Home() {
   return (
@@ -9,6 +11,16 @@ export default function Home() {
       <section className="relative">
         <AnimatedHero />
         <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto -mt-20 pb-20">
+          {/* Add Logo Image here */}
+          <div className="flex justify-center mb-8">
+            <Image
+              src={RowanaLogo}
+              alt="Rowana Logo"
+              width={100} // Adjust size as needed
+              height={100} // Adjust size as needed
+              priority // Load the logo early as it's in the hero
+            />
+          </div>
           <div className="max-w-md mx-auto">
             <EmailForm buttonText="tame the ai" />
           </div>

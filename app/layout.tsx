@@ -12,7 +12,12 @@ export const metadata: Metadata = {
   title: "Rowana - Control How AI Sees Your Brand",
   description:
     "Rowana automatically structures your content, ensuring LLMs like ChatGPT & Perplexity represent your innovation accurately.",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  // Add icons configuration
+  icons: {
+    icon: "/RowanaLogoSmall.png", // Standard favicon
+    apple: "/RowanaLogoWhiteBG.png", // Apple touch icon
+  },
 }
 
 export default function RootLayout({
