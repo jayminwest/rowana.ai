@@ -33,32 +33,15 @@ export default function EmailForm({ buttonText = "get early access" }: { buttonT
       })
       setEmail("")
     } catch (error: unknown) {
-      // Log the error for debugging
+      // Log the error for debugging purposes
       console.error('Email submission error:', error);
 
-      let isDuplicate = false;
-      // Check if error is an object and has the duplicate code/message
-      if (typeof error === 'object' && error !== null) {
-        const err = error as { code?: string; message?: string }; // Type assertion
-        isDuplicate = err.code === '23505' ||
-                      (typeof err.message === 'string' && err.message.includes('duplicate key value violates unique constraint'));
-      }
-
-      if (isDuplicate) {
-        // Show specific toast for duplicate email
-        toast({
-          variant: "destructive",
-          title: "Already Subscribed",
-          description: "This email address is already registered.", // Reverted to specific message
-        })
-      } else {
-        // Show generic error toast for other issues
-        toast({
-          variant: "destructive",
-          title: "Error",
-          description: "Something went wrong. Please try again.",
-        })
-      }
+      // Catch-all: Show a generic error toast for any submission failure
+      toast({
+        variant: "destructive",
+        title: "Submission Error",
+        description: "Something went wrong. Please try submitting again.",
+      })
     } finally {
       setIsSubmitting(false)
     }
