@@ -43,27 +43,27 @@
     --card-foreground: 0 0% 98%;
     --popover: 222 47% 11%; /* ~= gray-900 */
     --popover-foreground: 0 0% 98%;
-    /* Pink Primary Accent */
-    --primary: 340 90% 61%; /* ~= pink-500 */
+    /* Logo Top Color (Reddish-Pink) */
+    --primary: 357 78% 64%; /* #EA5D63 */
     --primary-foreground: 0 0% 100%; /* white */
     /* Lighter Gray Secondary Background */
     --secondary: 222 47% 25%; /* ~= gray-700 */
     --secondary-foreground: 0 0% 98%;
     --muted: 222 47% 18%; /* ~= gray-800 */
     --muted-foreground: 0 0% 63.9%;
-    /* Purple Accent */
-    --accent: 262 52% 48%; /* ~= purple-600 */
+    /* Logo Bottom Color (Purple) */
+    --accent: 261 78% 56%; /* #7139E4 */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%; /* Keep default red */
     --destructive-foreground: 0 0% 98%;
     /* Adjusted Border */
     --border: 222 47% 25%; /* ~= gray-700 */
     --input: 222 47% 25%; /* ~= gray-700 */
-    /* Pink Ring for Focus */
-    --ring: 340 90% 61%; /* ~= pink-500 */
-    /* Update Chart Colors */
-    --chart-1: 340 90% 61%; /* pink-500 */
-    --chart-2: 262 52% 48%; /* purple-600 */
+    /* Ring matches new primary */
+    --ring: 357 78% 64%; /* #EA5D63 */
+    /* Update Chart Colors to match new theme */
+    --chart-1: 357 78% 64%; /* primary: #EA5D63 */
+    --chart-2: 261 78% 56%; /* accent: #7139E4 */
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;

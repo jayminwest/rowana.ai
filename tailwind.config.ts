@@ -11,14 +11,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Removed old violet/teal overrides, rely on theme variables now
         black: "#000000",
-        violet: {
-          600: "#6D28D9", // Primary color
-          700: "#5B21B6",
-        },
-        teal: {
-          400: "#14B8A6", // Accent color
-        },
         gray: {
           300: "#D1D5DB",
           400: "#9CA3AF",

@@ -32,9 +32,9 @@ export default function AnimatedHero() {
         />
       </div>
 
-      {/* Animated circles */}
+      {/* Animated circles - Use new theme colors */}
       <div
-        className="absolute -top-20 -right-20 w-64 h-64 bg-violet-600/20 rounded-full blur-3xl"
+        className="absolute -top-20 -right-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl" // Use primary color
         style={{
           opacity: isVisible ? 0.3 : 0,
           transition: "opacity 1.5s ease-in-out, transform 10s ease-in-out infinite",
@@ -42,7 +42,7 @@ export default function AnimatedHero() {
         }}
       />
       <div
-        className="absolute -bottom-32 -left-32 w-96 h-96 bg-teal-400/20 rounded-full blur-3xl"
+        className="absolute -bottom-32 -left-32 w-96 h-96 bg-accent/20 rounded-full blur-3xl" // Use accent color
         style={{
           opacity: isVisible ? 0.3 : 0,
           transition: "opacity 1.5s ease-in-out, transform 15s ease-in-out infinite",
@@ -77,7 +77,7 @@ export default function AnimatedHero() {
           <div className="mb-6">
             <MatrixText
               text="control how ai sees your brand"
-              color="#6D28D9" // Violet-600 color to match buttons, consider using theme variable like text-primary
+              color="#7139E4" // Use new accent color #7139E4 directly
               initialDelay={500}
               letterAnimationDuration={1000}
               letterInterval={120}
