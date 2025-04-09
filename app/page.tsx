@@ -216,9 +216,9 @@ module.exports = {
               rel="noopener noreferrer"
               aria-label="Rowana.ai on LinkedIn"
             >
-              {/* Use ghost variant for subtle icon button */}
-              <Button variant="ghost" size="icon">
-                <Linkedin className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />
+              {/* Use outline variant to match GitHub button */}
+              <Button variant="outline" size="icon">
+                <Linkedin className="h-5 w-5 text-muted-foreground" /> {/* Removed hover classes, variant handles it */}
               </Button>
             </a>
 
