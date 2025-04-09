@@ -10,10 +10,10 @@
   }
 }
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+/* Define theme variables globally */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
@@ -87,9 +87,11 @@
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-  /* Consolidate base styles */
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+@layer base {
+  /* Apply base styles */
   * {
     @apply border-border;
   }
