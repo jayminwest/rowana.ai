@@ -87,6 +87,8 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  } /* Close utilities layer */
+}
 /* Custom base styles */
 @layer base {
   * {
