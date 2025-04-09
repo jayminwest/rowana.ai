@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react" // Import hooks
 import Image from "next/image"
 import Link from "next/link" // Import Link for external navigation (or use <a>)
-import { Github } from "lucide-react" // Import the Github icon
+import { Github, Linkedin } from "lucide-react" // Import Github and Linkedin icons
 import EmailForm from "@/components/email-form"
 import AnimatedHero from "@/components/animated-hero"
 import AnimatedSection from "@/components/animated-section"
@@ -207,9 +207,24 @@ module.exports = {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground text-center sm:text-left">© {new Date().getFullYear()} rowana.ai - all rights reserved</p> {/* Made text slightly smaller */}
 
-          {/* GitHub Star Button - Bottom */}
-          <a
-            href={GITHUB_URL}
+          {/* Social Links Container */}
+          <div className="flex items-center gap-2"> {/* Group social icons */}
+            {/* LinkedIn Link */}
+            <a
+              href="https://www.linkedin.com/company/rowana-ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Rowana.ai on LinkedIn"
+            >
+              {/* Use ghost variant for subtle icon button */}
+              <Button variant="ghost" size="icon">
+                <Linkedin className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />
+              </Button>
+            </a>
+
+            {/* GitHub Star Button - Bottom */}
+            <a
+              href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Star rowana-ai/rowana-core on GitHub"
@@ -219,8 +234,9 @@ module.exports = {
               <span>Star</span>
             </Button>
           </a>
-        </div>
-      </footer>
+        </div> {/* End Social Links Container */}
+      </div>
+    </footer>
     </main>
   )
 }
