@@ -95,7 +95,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground; /* Keep text color */
+    background-color: hsl(var(--background)); /* Explicitly set background */
     /* font-family is applied via className in app/layout.tsx */
   }
 }

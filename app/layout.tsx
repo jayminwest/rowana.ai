@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Space_Grotesk } from "next/font/google"
+import { ThemeProvider } from "@/components/theme-provider" // Import ThemeProvider
 import "./globals.css"
 
 const spaceGrotesk = Space_Grotesk({
@@ -26,10 +27,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    // Assuming dark theme by default on the html tag below
-    <html lang="en" className="dark">
+    // Let ThemeProvider manage the class, remove direct className="dark"
+    <html lang="en" suppressHydrationWarning>
       {/* Removed bg-black text-white - handled by theme in globals.css */}
-      <body className={`${spaceGrotesk.className}`}>{children}</body>
+      <body className={`${spaceGrotesk.className}`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark" // Set default theme to dark
+          enableSystem={false} // Disable system preference if you want to force dark
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
