@@ -33,6 +33,7 @@ export default function RootLayout({
       {/* Re-add font class */}
       <body className={`${spaceGrotesk.className}`}>
         {children}
+        <Toaster /> {/* Add Toaster component here */}
       </body>
     </html>
   )

@@ -1,13 +1,17 @@
 "use client"
 
+"use client"
+
 import type React from "react"
 import { useState } from "react"
 import { supabase } from "@/lib/supabase"
+import { useToast } from "@/components/ui/use-toast" // Import useToast
 
 export default function EmailForm({ buttonText = "get early access" }: { buttonText?: string }) {
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [message, setMessage] = useState("")
+  // Remove message state: const [message, setMessage] = useState("")
+  const { toast } = useToast() // Get the toast function
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -20,10 +24,21 @@ export default function EmailForm({ buttonText = "get early access" }: { buttonT
 
       if (error) throw error
 
-      setMessage("Thanks! We'll be in touch soon.")
+      // Show success toast
+      toast({
+        title: "Success!",
+        description: "Thanks! We'll be in touch soon.",
+        // Optional: Add custom styling or duration
+        // className: "bg-green-500 text-white", // Example custom class
+      })
       setEmail("")
     } catch (error) {
-      setMessage("Something went wrong. Please try again.")
+      // Show error toast
+      toast({
+        variant: "destructive", // Use destructive variant for errors
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+      })
       console.error('Error:', error)
     } finally {
       setIsSubmitting(false)
@@ -49,7 +64,7 @@ export default function EmailForm({ buttonText = "get early access" }: { buttonT
           {isSubmitting ? "submitting..." : buttonText}
         </button>
       </form>
-      {message && <p className="mt-3 text-teal-400 animate-fade-in">{message}</p>}
+      {/* Remove the message paragraph: {message && <p className="mt-3 text-teal-400 animate-fade-in">{message}</p>} */}
     </div>
   )
 }
