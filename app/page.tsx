@@ -1,10 +1,21 @@
-import Image from "next/image" // Import the Image component
+"use client" // Add use client directive for hooks
+
+import { useState, useEffect } from "react" // Import hooks
+import Image from "next/image"
 import EmailForm from "@/components/email-form"
 import AnimatedHero from "@/components/animated-hero"
 import AnimatedSection from "@/components/animated-section"
 // RowanaLogo import removed, will be used in AnimatedHero
 
 export default function Home() {
+  const [isFormVisible, setIsFormVisible] = useState(false)
+
+  useEffect(() => {
+    // Trigger animation after mount
+    const timer = setTimeout(() => setIsFormVisible(true), 100) // Small delay
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     // Removed explicit bg-background, should inherit from body via globals.css
     <main className="min-h-screen">
@@ -13,7 +24,14 @@ export default function Home() {
         <AnimatedHero />
         {/* Logo moved into AnimatedHero component */}
         {/* Further increased negative margin to move form up */}
-        <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto -mt-32 sm:-mt-36 pb-20">
+        {/* Apply animation styles to this container */}
+        <div
+          className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto -mt-32 sm:-mt-36 pb-20 transition-all duration-1000 ease-out" // Added transition classes
+          style={{
+            opacity: isFormVisible ? 1 : 0,
+            transform: isFormVisible ? "translateY(0)" : "translateY(30px)", // Slide up effect
+          }}
+        >
           <div className="max-w-md mx-auto">
             <EmailForm buttonText="tame the ai" />
           </div>
