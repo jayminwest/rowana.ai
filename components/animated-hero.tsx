@@ -66,7 +66,9 @@ export default function AnimatedHero() {
             <Image
               src={RowanaLogo}
               alt="Rowana Logo"
-              className="w-20 h-20 sm:w-24 sm:h-24" // Responsive size
+              width={810} // Intrinsic width
+              height={646} // Intrinsic height
+              className="w-20 h-auto sm:w-24" // Control displayed size, maintain aspect ratio
               priority // Load the logo early as it's in the hero
             />
             {/* Add Rowana Text Next to Logo */}
