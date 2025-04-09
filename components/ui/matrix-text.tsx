@@ -128,18 +128,18 @@ export const MatrixText = ({
 
   // Use primary color for the matrix effect shadow, or adjust as needed
   const primaryColorHsl = "hsl(var(--primary))" // Get primary color from CSS variable
+  const foregroundColorHsl = "hsl(var(--foreground))" // Get foreground (white in dark theme)
   const motionVariants = useMemo(
     () => ({
       matrix: {
-        color: primaryColorHsl, // Use primary for the flashing matrix chars
-        textShadow: `0 2px 4px ${primaryColorHsl}80`, // Use primary for shadow
+        color: foregroundColorHsl, // Use foreground (white) for the flashing matrix chars
+        textShadow: `0 2px 4px ${primaryColorHsl}80`, // Keep primary shadow
       },
-      // Add a 'normal' variant for the final text state if needed, or rely on parent styling
       normal: {
-        // color: 'inherit' // Inherit gradient from parent
+        color: 'transparent' // Make final text transparent to inherit parent gradient
       },
     }),
-    [primaryColorHsl], // Dependency updated
+    [primaryColorHsl, foregroundColorHsl], // Dependencies updated
   )
 
   return (
