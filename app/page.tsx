@@ -93,7 +93,7 @@ export default function Home() {
               <div className="flex-shrink-0 bg-accent rounded-full w-10 h-10 flex items-center justify-center mr-4">
                 <span className="font-bold">1</span>
               </div>
-              <div>
+              <div className="min-w-0"> {/* Added min-w-0 */}
                  {/* text-white removed */}
                 <h3 className="text-xl font-semibold mb-2 lowercase">install the package</h3>
                  {/* Use bg-secondary, border, text-primary for code block */}
@@ -110,7 +110,7 @@ export default function Home() {
               <div className="flex-shrink-0 bg-accent rounded-full w-10 h-10 flex items-center justify-center mr-4">
                 <span className="font-bold">2</span>
               </div>
-              <div>
+              <div className="min-w-0"> {/* Added min-w-0 */}
                  {/* text-white removed */}
                 <h3 className="text-xl font-semibold mb-2 lowercase">
                   set up your config (we'll make it easy)
@@ -135,7 +135,7 @@ module.exports = {
               <div className="flex-shrink-0 bg-accent rounded-full w-10 h-10 flex items-center justify-center mr-4">
                 <span className="font-bold">3</span>
               </div>
-              <div>
+              <div className="min-w-0"> {/* Added min-w-0 */}
                  {/* text-white removed */}
                 <h3 className="text-xl font-semibold mb-2 lowercase">hook into your build. done.</h3>
                  {/* Use bg-secondary, border, text-primary for code block */}
