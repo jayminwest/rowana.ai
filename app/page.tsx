@@ -12,8 +12,8 @@ export default function Home() {
       <section className="relative">
         <AnimatedHero />
         {/* Logo moved into AnimatedHero component */}
-        {/* Adjusted negative margin for mobile */}
-        <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto -mt-10 sm:-mt-20 pb-20">
+        {/* Increased negative margin to move form up */}
+        <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto -mt-24 sm:-mt-28 pb-20">
           <div className="max-w-md mx-auto">
             <EmailForm buttonText="tame the ai" />
           </div>
