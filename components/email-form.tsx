@@ -32,13 +32,27 @@ export default function EmailForm({ buttonText = "get early access" }: { buttonT
         // className: "bg-green-500 text-white", // Example custom class
       })
       setEmail("")
-    } catch (error: any) { // Add type 'any' to inspect error properties
-      // Log the full error for debugging
-      console.error('Supabase Error:', error)
+    } catch (error: unknown) { // Use 'unknown' for better type safety
+      // Log the raw error for detailed debugging
+      console.error('Caught Error:', error);
+      console.error('Type of Error:', typeof error);
 
-      // Check for unique constraint violation (common in Postgres via Supabase)
-      // Adjust the code '23505' if Supabase/Postgres uses a different code
-      if (error?.code === '23505' || error?.message?.includes('duplicate key value violates unique constraint')) {
+      let isDuplicate = false;
+      // Safely check if error is an object and has expected properties
+      if (typeof error === 'object' && error !== null) {
+        const err = error as { code?: string; message?: string }; // Type assertion after check
+        console.error('Error Code:', err.code);
+        console.error('Error Message:', err.message);
+        // Check for unique constraint violation (common in Postgres via Supabase)
+        // Adjust the code '23505' if Supabase/Postgres uses a different code
+        isDuplicate = err.code === '23505' || (typeof err.message === 'string' && err.message.includes('duplicate key value violates unique constraint'));
+      } else if (typeof error === 'string') {
+        // Handle cases where the error might just be a string
+        console.error('Error is a string:', error);
+        isDuplicate = error.includes('duplicate key value violates unique constraint');
+      }
+
+      if (isDuplicate) {
         toast({
           variant: "destructive",
           title: "Already Subscribed",
