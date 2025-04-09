@@ -71,8 +71,10 @@ pnpm build
 
 ## How Rowana Works (The Core Tool)
 
+The following instructions are for using the core Rowana NPM package, which can be found at [rowana-ai/rowana-core](https://github.com/rowana-ai/rowana-core).
+
 1.  **Install the package:** `npm install @rowana/core` (or `pnpm add @rowana/core`)
-2.  **Set up your config:** Create a `rowana.config.js` (or similar) to define your organization, product details, etc.
+2.  **Set up your config:** Create a `rowana.config.js` (or similar) to define your organization, product details, etc. See the [core repository](https://github.com/rowana-ai/rowana-core) for configuration details.
 3.  **Hook into your build:** Add `rowana generate` to your build script (e.g., `"build": "rowana generate && next build"`).
 
 Rowana reads your config and generates the necessary structured data, injecting it into your site during the build process.
