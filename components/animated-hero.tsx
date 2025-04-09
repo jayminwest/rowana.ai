@@ -60,8 +60,8 @@ export default function AnimatedHero() {
             transition: "opacity 0.8s ease-out, transform 0.8s ease-out",
           }}
         >
-          {/* Add Logo Image here */}
-          <div className="flex justify-center mb-8">
+          {/* Logo and Text Container */}
+          <div className="flex justify-center items-center mb-8">
             <Image
               src={RowanaLogo}
               alt="Rowana Logo"
@@ -69,6 +69,10 @@ export default function AnimatedHero() {
               height={100} // Adjust size as needed
               priority // Load the logo early as it's in the hero
             />
+            {/* Add Rowana Text Next to Logo */}
+            <span className="ml-3 text-3xl font-bold text-secondary-foreground">
+              Rowana
+            </span>
           </div>
           <div className="mb-6">
             <MatrixText
