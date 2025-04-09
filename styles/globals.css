@@ -95,6 +95,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: Arial, Helvetica, sans-serif; /* Apply font-family here */
+    /* font-family is applied via className in app/layout.tsx */
   }
 }
