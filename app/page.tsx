@@ -19,11 +19,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Problem Section */}
-      {/* Use bg-card for section background */}
-      <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-card rounded-lg">
-        <div className="max-w-3xl mx-auto">
-          {/* text-white removed, inherits --foreground */}
+      {/* Problem Section - Consistent padding, bg-card for contrast */}
+      <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="max-w-3xl mx-auto bg-card p-8 rounded-lg"> {/* Added padding inside card */}
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center lowercase">
             ai is the new front door. is yours locked?
           </h2>
@@ -35,13 +33,19 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      {/* Solution Section */}
-      <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 text-center lowercase">
+      {/* Solution Section - Added subtle grid pattern, consistent text colors */}
+      <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+        {/* Subtle Grid Pattern Background */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+          <div className="h-full w-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNGRkYiIGZpbGwtb3BhY2l0eT0iMSI+PHBhdGggZD0iTTM2IDM0aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0JWNmgydjR6bTAgMjRoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0tNi0yNGgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bS02LTI0aC0ydi00aDJ2NHptMCA2aC0ydi00aDJ2NHptMCA2aC0ydi00aDJ2NHptMCA2aC0ydi00aDJ2NHptLTYtMjRoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0tNi0yNGgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6Ii8+PC9nPjwvZz48L3N2Zz4=')]"></div>
+        </div>
+        <div className="max-w-3xl mx-auto relative z-10"> {/* Ensure content is above pattern */}
+          {/* Use text-foreground */}
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 text-center lowercase">
             rowana: tell ai what's what.
           </h2>
-          <p className="text-lg text-gray-300 mb-6">
+          {/* Use text-muted-foreground */}
+          <p className="text-lg text-muted-foreground mb-10"> {/* Increased bottom margin */}
             Rowana is the build-time NPM tool that adds the structured data AI desperately needs to understand your
             product. No more hoping LLMs get it right—make them get it right.
           </p>
@@ -76,11 +80,9 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      {/* How It Works Section */}
-       {/* Use bg-card for section background */}
-      <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-card rounded-lg">
-        <div className="max-w-3xl mx-auto">
-           {/* text-white removed, inherits --foreground */}
+      {/* How It Works Section - Consistent padding, bg-card for contrast */}
+      <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="max-w-3xl mx-auto bg-card p-8 rounded-lg"> {/* Added padding inside card */}
           <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-center lowercase">
             dead simple integration.
           </h2>
@@ -148,11 +150,15 @@ module.exports = {
         </div>
       </AnimatedSection>
 
-      {/* Final CTA Section */}
-      <AnimatedSection className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center">
-           {/* text-white removed */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 lowercase">
+      {/* Final CTA Section - Added subtle grid pattern, consistent text colors */}
+      <AnimatedSection className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+        {/* Subtle Grid Pattern Background */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+          <div className="h-full w-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNGRkYiIGZpbGwtb3BhY2l0eT0iMSI+PHBhdGggZD0iTTM2IDM0aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0ydi00aDJ2NHptMC02aC0JWNmgydjR6bTAgMjRoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0tNi0yNGgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bS02LTI0aC0ydi00aDJ2NHptMCA2aC0ydi00aDJ2NHptMCA2aC0ydi00aDJ2NHptMCA2aC0ydi00aDJ2NHptLTYtMjRoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0tNi0yNGgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6bTAgNmgtMnYtNGgydjR6Ii8+PC9nPjwvZz48L3N2Zz4=')]"></div>
+        </div>
+        <div className="text-center relative z-10"> {/* Ensure content is above pattern */}
+          {/* Use text-foreground */}
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 lowercase">
             stop worrying about ai misinformation. get early access.
           </h2>
            {/* Use text-muted-foreground */}
@@ -166,12 +172,10 @@ module.exports = {
         </div>
       </AnimatedSection>
 
-      {/* Footer */}
-       {/* Use border (theme variable) for the footer border */}
-      <footer className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border">
+      {/* Footer - Consistent padding */}
+      <footer className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-border"> {/* Use border-border */}
         <div className="text-center">
-           {/* Use text-muted-foreground */}
-          <p className="text-muted-foreground">© {new Date().getFullYear()} rowana.ai - all rights reserved</p>
+          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} rowana.ai - all rights reserved</p> {/* Made text slightly smaller */}
         </div>
       </footer>
     </main>
