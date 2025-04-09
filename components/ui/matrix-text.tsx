@@ -16,7 +16,7 @@ interface MatrixTextProps {
   initialDelay?: number
   letterAnimationDuration?: number
   letterInterval?: number
-  color?: string
+  // color?: string // Removed color prop, will use gradient
   delayBetweenPasses?: number
 }
 
@@ -26,7 +26,7 @@ export const MatrixText = ({
   initialDelay = 200,
   letterAnimationDuration = 500,
   letterInterval = 100,
-  color = "#00ff00",
+  // color = "#00ff00", // Removed color prop default
   delayBetweenPasses = 3000, // 3 second delay between passes
 }: MatrixTextProps) => {
   const [letters, setLetters] = useState<LetterState[]>(() =>
@@ -126,18 +126,31 @@ export const MatrixText = ({
     }
   }, [startAnimation, initialDelay, animationPass])
 
+  // Use primary color for the matrix effect shadow, or adjust as needed
+  const primaryColorHsl = "hsl(var(--primary))" // Get primary color from CSS variable
   const motionVariants = useMemo(
     () => ({
       matrix: {
-        color: color,
-        textShadow: `0 2px 4px ${color}80`,
+        color: primaryColorHsl, // Use primary for the flashing matrix chars
+        textShadow: `0 2px 4px ${primaryColorHsl}80`, // Use primary for shadow
+      },
+      // Add a 'normal' variant for the final text state if needed, or rely on parent styling
+      normal: {
+        // color: 'inherit' // Inherit gradient from parent
       },
     }),
-    [color],
+    [primaryColorHsl], // Dependency updated
   )
 
   return (
-    <div className={cn("flex items-center justify-center text-white", className)} aria-label="Matrix text animation">
+    // Apply gradient classes here
+    <div
+      className={cn(
+        "flex items-center justify-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent", // Gradient classes
+        className,
+      )}
+      aria-label="Matrix text animation"
+    >
       <div className="flex items-center justify-center">
         <div className="flex flex-wrap items-center justify-center">
           {letters.map((letter, index) => (

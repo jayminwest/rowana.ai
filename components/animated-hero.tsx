@@ -77,7 +77,7 @@ export default function AnimatedHero() {
           <div className="mb-6">
             <MatrixText
               text="control how ai sees your brand"
-              color="#7139E4" // Use new accent color #7139E4 directly
+              // color prop removed, gradient applied within MatrixText
               initialDelay={500}
               letterAnimationDuration={1000}
               letterInterval={120}
