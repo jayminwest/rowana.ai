@@ -152,8 +152,8 @@ export const MatrixText = ({
       )}
       aria-label="Matrix text animation"
     >
-      {/* Removed intermediate div, apply flex-wrap directly to the root */}
-      <div className="flex flex-wrap items-baseline justify-center">
+      {/* Added break-words to help with wrapping on narrow screens */}
+      <div className="flex flex-wrap items-baseline justify-center break-words">
         {letters.map((letter, index) => (
           <motion.div
             key={`${index}-${letter.char}`}
