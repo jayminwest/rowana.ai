@@ -6,8 +6,8 @@ import AnimatedSection from "@/components/animated-section"
 
 export default function Home() {
   return (
-    // Explicitly set bg-background to ensure dark theme applies
-    <main className="min-h-screen bg-background">
+    // Removed explicit bg-background, should inherit from body via globals.css
+    <main className="min-h-screen">
       {/* Hero Section */}
       <section className="relative">
         <AnimatedHero />
