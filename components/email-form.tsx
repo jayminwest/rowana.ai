@@ -32,14 +32,26 @@ export default function EmailForm({ buttonText = "get early access" }: { buttonT
         // className: "bg-green-500 text-white", // Example custom class
       })
       setEmail("")
-    } catch (error) {
-      // Show error toast
-      toast({
-        variant: "destructive", // Use destructive variant for errors
-        title: "Error",
-        description: "Something went wrong. Please try again.",
-      })
-      console.error('Error:', error)
+    } catch (error: any) { // Add type 'any' to inspect error properties
+      // Log the full error for debugging
+      console.error('Supabase Error:', error)
+
+      // Check for unique constraint violation (common in Postgres via Supabase)
+      // Adjust the code '23505' if Supabase/Postgres uses a different code
+      if (error?.code === '23505' || error?.message?.includes('duplicate key value violates unique constraint')) {
+        toast({
+          variant: "destructive",
+          title: "Already Subscribed",
+          description: "This email address has already been registered.",
+        })
+      } else {
+        // Show generic error toast for other issues
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: "Something went wrong. Please try again.",
+        })
+      }
     } finally {
       setIsSubmitting(false)
     }
