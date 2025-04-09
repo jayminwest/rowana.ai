@@ -33,37 +33,32 @@ export default function EmailForm({ buttonText = "get early access" }: { buttonT
       })
       setEmail("")
     } catch (error: unknown) {
-      // More detailed logging before calling toast
-      console.error('[EmailForm Catch Block] Type:', typeof error);
-      console.error('[EmailForm Catch Block] Raw Error:', error);
-      try {
-        // Attempt to stringify, handling potential circular references
-        const seen = new WeakSet();
-        const errorString = JSON.stringify(error, (key, value) => {
-          if (typeof value === 'object' && value !== null) {
-            if (seen.has(value)) {
-              return '[Circular Reference]';
-            }
-            seen.add(value);
-          }
-          return value;
-        }, 2); // Indent for readability
-        console.error('[EmailForm Catch Block] Stringified Error:', errorString);
-      } catch (stringifyErr) {
-        console.error('[EmailForm Catch Block] Error stringifying caught error:', stringifyErr);
-        // Fallback: Log basic properties if possible
-        if (typeof error === 'object' && error !== null) {
-          console.error('[EmailForm Catch Block] Fallback Log - Code:', (error as any).code);
-          console.error('[EmailForm Catch Block] Fallback Log - Message:', (error as any).message);
-        }
+      // Log the error for debugging
+      console.error('Email submission error:', error);
+
+      let isDuplicate = false;
+      // Check if error is an object and has the duplicate code/message
+      if (typeof error === 'object' && error !== null) {
+        const err = error as { code?: string; message?: string }; // Type assertion
+        isDuplicate = err.code === '23505' ||
+                      (typeof err.message === 'string' && err.message.includes('duplicate key value violates unique constraint'));
       }
 
-      // Simplify: Assume any error during insert means the email likely exists
-      toast({
-        variant: "destructive",
-        title: "Already Subscribed",
-        description: "We already have your email!", // Updated message as requested
-      })
+      if (isDuplicate) {
+        // Show specific toast for duplicate email
+        toast({
+          variant: "destructive",
+          title: "Already Subscribed",
+          description: "This email address is already registered.", // Reverted to specific message
+        })
+      } else {
+        // Show generic error toast for other issues
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: "Something went wrong. Please try again.",
+        })
+      }
     } finally {
       setIsSubmitting(false)
     }
