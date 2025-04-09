@@ -33,24 +33,47 @@ export default function EmailForm({ buttonText = "get early access" }: { buttonT
       })
       setEmail("")
     } catch (error: unknown) { // Use 'unknown' for better type safety
-      // Log the raw error for detailed debugging
-      console.error('Caught Error:', error);
+      // Log the raw error and its stringified version for detailed debugging
+      console.error('Caught Error Raw:', error);
+      try {
+        console.error('Caught Error Stringified:', JSON.stringify(error));
+      } catch (stringifyError) {
+        console.error('Could not stringify error:', stringifyError);
+      }
       console.error('Type of Error:', typeof error);
 
       let isDuplicate = false;
+      const errorString = String(error); // Convert error to string for searching
+
       // Safely check if error is an object and has expected properties
       if (typeof error === 'object' && error !== null) {
-        const err = error as { code?: string; message?: string }; // Type assertion after check
-        console.error('Error Code:', err.code);
-        console.error('Error Message:', err.message);
-        // Check for unique constraint violation (common in Postgres via Supabase)
-        // Adjust the code '23505' if Supabase/Postgres uses a different code
-        isDuplicate = err.code === '23505' || (typeof err.message === 'string' && err.message.includes('duplicate key value violates unique constraint'));
+        const err = error as { code?: string; message?: string }; // Type assertion
+        console.error('Inspecting Error Object - Code:', err.code);
+        console.error('Inspecting Error Object - Message:', err.message);
+
+        // Primary check: Look for specific code or message properties
+        isDuplicate = err.code === '23505' ||
+                      (typeof err.message === 'string' && err.message.includes('duplicate key value violates unique constraint'));
+
+        // Fallback check: Search within the string representation if properties are missing/undefined
+        if (!isDuplicate && (errorString.includes('23505') || errorString.includes('duplicate key value violates unique constraint'))) {
+            console.log("Detected duplicate via string search (object).");
+            isDuplicate = true;
+        }
+
       } else if (typeof error === 'string') {
-        // Handle cases where the error might just be a string
+        // Handle cases where the error is just a string
         console.error('Error is a string:', error);
-        isDuplicate = error.includes('duplicate key value violates unique constraint');
+        isDuplicate = error.includes('duplicate key value violates unique constraint') || error.includes('23505');
+         if (isDuplicate) console.log("Detected duplicate via string search (string).");
+      } else {
+         // Final fallback: Check the generic string representation
+         if (errorString.includes('23505') || errorString.includes('duplicate key value violates unique constraint')) {
+            console.log("Detected duplicate via generic string search.");
+            isDuplicate = true;
+         }
       }
+
 
       if (isDuplicate) {
         toast({
