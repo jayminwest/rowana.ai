@@ -26,11 +26,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${spaceGrotesk.className} bg-black text-white`}>{children}</body>
+    <html lang="en" className="dark"> {/* Assuming dark theme by default */}
+      {/* Removed bg-black text-white - handled by theme in globals.css */}
+      <body className={`${spaceGrotesk.className}`}>{children}</body>
     </html>
   )
 }
 
-
-import './globals.css'
+// Removed extra import './globals.css'
