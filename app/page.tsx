@@ -2,10 +2,15 @@
 
 import { useState, useEffect } from "react" // Import hooks
 import Image from "next/image"
+import Link from "next/link" // Import Link for external navigation (or use <a>)
+import { Github } from "lucide-react" // Import the Github icon
 import EmailForm from "@/components/email-form"
 import AnimatedHero from "@/components/animated-hero"
 import AnimatedSection from "@/components/animated-section"
+import { Button } from "@/components/ui/button" // Import the Button component
 // RowanaLogo import removed, will be used in AnimatedHero
+
+const GITHUB_URL = "https://github.com/rowana-ai/rowana-core" // Define the repo URL
 
 export default function Home() {
   const [isFormVisible, setIsFormVisible] = useState(false)
@@ -18,7 +23,22 @@ export default function Home() {
 
   return (
     // Removed explicit bg-background, should inherit from body via globals.css
-    <main className="min-h-screen">
+    // Add relative positioning to main for the absolute button
+    <main className="min-h-screen relative">
+      {/* GitHub Star Button - Top */}
+      <a
+        href={GITHUB_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute top-4 right-4 z-20" // Position top-right, ensure high z-index
+        aria-label="Star rowana-ai/rowana-core on GitHub"
+      >
+        <Button variant="outline" size="sm" className="flex items-center gap-2">
+          <Github className="h-4 w-4" />
+          <span>Star</span>
+        </Button>
+      </a>
+
       {/* Hero Section */}
       <section className="relative">
         <AnimatedHero />
@@ -195,8 +215,22 @@ module.exports = {
 
       {/* Footer - Consistent padding */}
       <footer className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-border"> {/* Use border-border */}
-        <div className="text-center">
-          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} rowana.ai - all rights reserved</p> {/* Made text slightly smaller */}
+        {/* Use flex to align items */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground text-center sm:text-left">© {new Date().getFullYear()} rowana.ai - all rights reserved</p> {/* Made text slightly smaller */}
+
+          {/* GitHub Star Button - Bottom */}
+          <a
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Star rowana-ai/rowana-core on GitHub"
+          >
+            <Button variant="outline" size="sm" className="flex items-center gap-2">
+              <Github className="h-4 w-4" />
+              <span>Star</span>
+            </Button>
+          </a>
         </div>
       </footer>
     </main>
