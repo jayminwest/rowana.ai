@@ -27,6 +27,15 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/signup',
+        // IMPORTANT: Replace this with your actual deployed Cloudflare Worker URL
+        destination: 'https://rowana-signup-worker.YOUR_SUBDOMAIN.workers.dev',
+      },
+    ]
+  },
 }
 
 if (userConfig) {
