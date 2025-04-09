@@ -30,7 +30,8 @@ export default function RootLayout({
     // Let ThemeProvider manage the class, remove direct className="dark"
     <html lang="en" suppressHydrationWarning>
       {/* Removed bg-black text-white - handled by theme in globals.css */}
-      <body className={`${spaceGrotesk.className}`}>
+      {/* Temporarily removed spaceGrotesk.className to isolate background issue */}
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark" // Set default theme to dark
