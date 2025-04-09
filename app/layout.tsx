@@ -1,9 +1,11 @@
 import type React from "react"
 import type { Metadata } from "next"
+import type React from "react"
+import type { Metadata } from "next"
 import { Space_Grotesk } from "next/font/google"
 // ThemeProvider import removed again
 import "./globals.css"
-import { Toaster } from "@/components/ui/sonner" // Import Toaster
+import { Toaster } from "@/components/ui/toaster" // Correct Toaster import
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
