@@ -1,24 +1,33 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
+import { supabase } from "@/lib/supabase"
 
 export default function EmailForm({ buttonText = "get early access" }: { buttonText?: string }) {
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [message, setMessage] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
+    try {
+      const { error } = await supabase
+        .from('email_signups')
+        .insert([{ email }])
+
+      if (error) throw error
+
       setMessage("Thanks! We'll be in touch soon.")
       setEmail("")
-    }, 1000)
+    } catch (error) {
+      setMessage("Something went wrong. Please try again.")
+      console.error('Error:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
