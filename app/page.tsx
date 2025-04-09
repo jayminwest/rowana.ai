@@ -23,27 +23,15 @@ export default function Home() {
 
   return (
     // Removed explicit bg-background, should inherit from body via globals.css
-    // Add relative positioning to main for the absolute button
-    <main className="min-h-screen relative">
-      {/* GitHub Star Button - Top */}
-      <a
-        href={GITHUB_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="absolute top-4 right-4 z-20" // Position top-right, ensure high z-index
-        aria-label="Star rowana-ai/rowana-core on GitHub"
-      >
-        <Button variant="outline" size="sm" className="flex items-center gap-2">
-          <Github className="h-4 w-4" />
-          <span>Star</span>
-        </Button>
-      </a>
+    // Removed relative positioning needed for old top button
+    <main className="min-h-screen">
+      {/* Top GitHub Star Button moved into AnimatedHero */}
 
       {/* Hero Section */}
       <section className="relative">
         <AnimatedHero />
         {/* Logo moved into AnimatedHero component */}
-        {/* Further increased negative margin to move form up */}
+        {/* Negative margin remains unchanged as button is now inside Hero */}
         {/* Apply animation styles to this container */}
         <div
           className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto -mt-32 sm:-mt-36 pb-20 transition-all duration-1000 ease-out" // Added transition classes
