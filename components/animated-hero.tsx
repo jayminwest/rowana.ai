@@ -74,7 +74,8 @@ export default function AnimatedHero() {
               Rowana
             </span>
           </div>
-          <div className="mb-6">
+          {/* Increased bottom margin and added vertical padding to prevent text overlap */}
+          <div className="mb-8 py-2"> {/* Added py-2 and changed mb-6 to mb-8 */}
             <MatrixText
               text="control how ai sees your brand"
               // color prop removed, gradient applied within MatrixText
