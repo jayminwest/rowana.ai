@@ -94,9 +94,12 @@
   * {
     @apply border-border;
   }
+  html { /* Apply background directly to html */
+    background-color: hsl(var(--background));
+  }
   body {
     @apply text-foreground; /* Keep text color */
-    background-color: hsl(var(--background)); /* Explicitly set background */
+    /* Background is now applied to html element */
     /* font-family is applied via className in app/layout.tsx */
   }
 }
