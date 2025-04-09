@@ -38,7 +38,7 @@ export default function EmailForm({ buttonText = "get early access" }: { buttonT
       // Removed toast call
     }
     // Removed finally block, status handles UI state
-    }
+    // Removed extra closing brace here
   }
 
   return (
