@@ -152,12 +152,11 @@ export const MatrixText = ({
       )}
       aria-label="Matrix text animation"
     >
-      <div className="flex items-center justify-center">
-        {/* Changed items-center to items-baseline */}
-        <div className="flex flex-wrap items-baseline justify-center">
-          {letters.map((letter, index) => (
-            <motion.div
-              key={`${index}-${letter.char}`}
+      {/* Removed intermediate div, apply flex-wrap directly to the root */}
+      <div className="flex flex-wrap items-baseline justify-center">
+        {letters.map((letter, index) => (
+          <motion.div
+            key={`${index}-${letter.char}`}
               className="font-mono text-4xl md:text-6xl w-[1ch] text-center" // Removed leading-snug
               initial="initial"
               animate={letter.isMatrix ? "matrix" : "normal"}
@@ -174,8 +173,8 @@ export const MatrixText = ({
               {letter.isSpace ? "\u00A0" : letter.char}
             </motion.div>
           ))}
-        </div>
       </div>
+      {/* Removed closing tag for intermediate div */}
     </div>
   )
 }
