@@ -33,8 +33,30 @@ export default function EmailForm({ buttonText = "get early access" }: { buttonT
       })
       setEmail("")
     } catch (error: unknown) {
-      // Log the error for debugging purposes
-      console.error('Email submission error:', error);
+      // More detailed logging before calling toast
+      console.error('[EmailForm Catch Block] Type:', typeof error);
+      console.error('[EmailForm Catch Block] Raw Error:', error);
+      try {
+        // Attempt to stringify, handling potential circular references
+        const seen = new WeakSet();
+        const errorString = JSON.stringify(error, (key, value) => {
+          if (typeof value === 'object' && value !== null) {
+            if (seen.has(value)) {
+              return '[Circular Reference]';
+            }
+            seen.add(value);
+          }
+          return value;
+        }, 2); // Indent for readability
+        console.error('[EmailForm Catch Block] Stringified Error:', errorString);
+      } catch (stringifyErr) {
+        console.error('[EmailForm Catch Block] Error stringifying caught error:', stringifyErr);
+        // Fallback: Log basic properties if possible
+        if (typeof error === 'object' && error !== null) {
+          console.error('[EmailForm Catch Block] Fallback Log - Code:', (error as any).code);
+          console.error('[EmailForm Catch Block] Fallback Log - Message:', (error as any).message);
+        }
+      }
 
       // Simplify: Assume any error during insert means the email likely exists
       toast({
