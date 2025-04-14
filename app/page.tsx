@@ -54,9 +54,9 @@ export default function Home() {
           </h2>
           {/* Use text-muted-foreground */}
           <p className="text-lg text-muted-foreground">
-            How do you *know* if AI truly understands your website? Without the right signals, LLMs
+            How do you <strong>know</strong> if AI truly understands your website? Without the right signals, LLMs
             misinterpret, misrepresent, or simply ignore your content. This isn't just traditional SEO; it's about ensuring
-            *accuracy* in the new AI-driven answer engines. Don't let a confused AI bury your brand or become your unintended
+            <strong>accuracy</strong> in the new AI-driven answer engines. Don't let a confused AI bury your brand or become your unintended
             spokesperson. As users turn to AI for answers, inaccurate representation is a growing risk.
           </p>
         </div>
@@ -80,25 +80,17 @@ export default function Home() {
             Integrating into your build process, it <strong>analyzes</strong> your content's clarity, provides <strong>restructuring guidance</strong>,
             and generates the <strong>advanced structured data</strong> AI needs. Stop hoping LLMs get it right—make them.
           </p>
+          {/* Combined Accuracy & Control, Clarity, Automate GEO into 3 cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            {/* Use bg-secondary for cards, text-primary for accent heading */}
+            {/* Combined Accuracy & Control Card */}
             <div className="bg-secondary p-6 rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-secondary/80">
-              <h3 className="text-xl font-semibold text-primary mb-3">accuracy</h3>
+              <h3 className="text-xl font-semibold text-primary mb-3">accuracy & control</h3>
               {/* Use text-muted-foreground */}
               <p className="text-muted-foreground">
-                Ensure AI represents your product accurately through
-                optimized content *and* explicit data signals.
+                Ensure AI represents your product accurately through optimized content and explicit data signals. You built it, you define it.
               </p>
             </div>
-             {/* Use bg-secondary for cards, text-primary for accent heading */}
-            <div className="bg-secondary p-6 rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-secondary/80">
-              <h3 className="text-xl font-semibold text-primary mb-3">control</h3>
-               {/* Use text-muted-foreground */}
-              <p className="text-muted-foreground">
-                You built it, you define it. Take back control of how AI systems talk about your innovation.
-              </p>
-            </div>
-            {/* Use bg-secondary for cards, text-primary for accent heading */}
+            {/* Improve Clarity Card */}
             <div className="bg-secondary p-6 rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-secondary/80">
               <h3 className="text-xl font-semibold text-primary mb-3">improve clarity</h3>
                {/* Use text-muted-foreground */}
@@ -154,7 +146,23 @@ export default function Home() {
                 <h3 className="text-xl font-semibold mb-2 lowercase">
                   Configure Rowana's analysis and generation rules (simple setup).
                 </h3>
-                 {/* Config example removed for now */}
+                 {/* Conceptual example of configuration impact */}
+                 <div className="bg-secondary border p-3 rounded-md mt-2">
+                  <pre className="text-primary text-sm overflow-x-auto">
+                    <code>{`// Example: Tell Rowana what content matters
+// (Specific config syntax TBD)
+
+identify Product {
+  name: find("h1");
+  description: find(".product-description");
+  features: find("ul.features > li");
+}
+
+generate JSON-LD {
+  // Auto-create structured data based on identified content
+}`}</code>
+                  </pre>
+                </div>
               </div>
             </div>
 
