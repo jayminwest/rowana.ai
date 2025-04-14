@@ -49,13 +49,19 @@ export default function Home() {
       {/* Problem Section - Consistent padding, bg-card for contrast */}
       <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="max-w-3xl mx-auto bg-card p-8 rounded-lg"> {/* Added padding inside card */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center lowercase">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center lowercase"> {/* Reduced bottom margin */}
             ai is the new front door. is yours locked?
           </h2>
+          {/* Added Sub-headline/Stat - Made more prominent */}
+          <p className="text-lg font-semibold text-primary mb-6 text-center"> {/* Increased size, changed color, made bold, removed italic */}
+            "Traditional search engine volume will drop by 25% by 2026, due to the rise of AI chatbots and other virtual agents." - Gartner
+          </p>
           {/* Use text-muted-foreground */}
           <p className="text-lg text-muted-foreground">
-            Without the right signals, LLMs might ignore your site or misrepresent your product. Don't let a confused AI
-            bury your brand or become your unintended spokesperson.
+            How do you <strong>know</strong> if AI truly understands your website? Without the right signals, LLMs
+            misinterpret, misrepresent, or simply ignore your content. This isn't just traditional SEO; it's about ensuring 
+            <strong> accuracy</strong> in the new AI-driven answer engines. Don't let a confused AI bury your brand or become your unintended
+            spokesperson. As users turn to AI for answers, inaccurate representation is a growing risk.
           </p>
         </div>
       </AnimatedSection>
@@ -74,34 +80,36 @@ export default function Home() {
           </h2>
           {/* Use text-muted-foreground */}
           <p className="text-lg text-muted-foreground mb-10"> {/* Increased bottom margin */}
-            Rowana is the build-time NPM tool that adds the structured data AI desperately needs to understand your
-            product. No more hoping LLMs get it right—make them get it right.
+            Rowana is your <strong>Generative Engine Optimization (GEO)</strong> toolkit.
+            Integrating into your build process, it <strong>analyzes</strong> your content's clarity, provides <strong>restructuring guidance</strong>,
+            and generates the <strong>advanced structured data</strong> AI needs. Stop hoping LLMs get it right—make them.
           </p>
+          {/* Combined Accuracy & Control, Clarity, Automate GEO into 3 cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            {/* Use bg-secondary for cards, text-primary for accent heading */}
+            {/* Combined Accuracy & Control Card */}
             <div className="bg-secondary p-6 rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-secondary/80">
-              <h3 className="text-xl font-semibold text-primary mb-3">accuracy</h3>
+              <h3 className="text-xl font-semibold text-primary mb-3">accuracy & control</h3>
               {/* Use text-muted-foreground */}
               <p className="text-muted-foreground">
-                Force AI to represent your product correctly. No more "close enough" descriptions that miss your key
-                differentiators.
+                Ensure AI represents your product accurately through optimized content and explicit data signals. You built it, you define it.
+              </p>
+            </div>
+            {/* Improve Clarity Card */}
+            <div className="bg-secondary p-6 rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-secondary/80">
+              <h3 className="text-xl font-semibold text-primary mb-3">improve clarity</h3>
+               {/* Use text-muted-foreground */}
+              <p className="text-muted-foreground">
+                Optimize your content structure and language for both AI comprehension and better user
+                experience.
               </p>
             </div>
              {/* Use bg-secondary for cards, text-primary for accent heading */}
             <div className="bg-secondary p-6 rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-secondary/80">
-              <h3 className="text-xl font-semibold text-primary mb-3">control</h3>
+              <h3 className="text-xl font-semibold text-primary mb-3">automate geo</h3>
                {/* Use text-muted-foreground */}
               <p className="text-muted-foreground">
-                You built it, you define it. Take back control of how AI systems talk about your innovation.
-              </p>
-            </div>
-             {/* Use bg-secondary for cards, text-primary for accent heading */}
-            <div className="bg-secondary p-6 rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-secondary/80">
-              <h3 className="text-xl font-semibold text-primary mb-3">less headache</h3>
-               {/* Use text-muted-foreground */}
-              <p className="text-muted-foreground">
-                Set it up once, forget about it. Rowana updates your Schema.org data automatically as your product
-                evolves.
+                Automate complex GEO tasks within your existing development
+                workflow.
               </p>
             </div>
           </div>
@@ -140,17 +148,22 @@ export default function Home() {
               <div className="min-w-0"> {/* Added min-w-0 */}
                  {/* text-white removed */}
                 <h3 className="text-xl font-semibold mb-2 lowercase">
-                  set up your config (we'll make it easy)
+                  Configure Rowana's analysis and generation rules (simple setup).
                 </h3>
-                 {/* Use bg-secondary, border, text-primary for code block */}
-                <div className="bg-secondary border p-3 rounded-md">
+                 {/* Conceptual example of configuration impact */}
+                 <div className="bg-secondary border p-3 rounded-md mt-2">
                   <pre className="text-primary text-sm overflow-x-auto">
-                    <code>{`// geo.config.js
-module.exports = {
-  organization: {
-    name: 'Your Company',
-    description: 'Your product description'
-  }
+                    <code>{`// Example: Tell Rowana what content matters
+// (Specific config syntax TBD)
+
+identify Product {
+  name: find("h1");
+  description: find(".product-description");
+  features: find("ul.features > li");
+}
+
+generate JSON-LD {
+  // Auto-create structured data based on identified content
 }`}</code>
                   </pre>
                 </div>
@@ -164,7 +177,7 @@ module.exports = {
               </div>
               <div className="min-w-0"> {/* Added min-w-0 */}
                  {/* text-white removed */}
-                <h3 className="text-xl font-semibold mb-2 lowercase">hook into your build. done.</h3>
+                <h3 className="text-xl font-semibold mb-2 lowercase">Integrate into your build process. Done.</h3>
                  {/* Use bg-secondary, border, text-primary for code block */}
                 <div className="bg-secondary border p-3 rounded-md">
                   <pre className="text-primary text-sm overflow-x-auto">
@@ -192,8 +205,7 @@ module.exports = {
           </h2>
            {/* Use text-muted-foreground */}
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-            Join the developers who are taking control of their AI presence. Be among the first to shape how Rowana
-            works.
+            Join the developers taking control of their AI presence. Get early access to the Rowana GEO toolkit and help shape its development.
           </p>
           <div className="max-w-md mx-auto">
             <EmailForm buttonText="get early access" />

@@ -118,8 +118,8 @@ export default function AnimatedHero() {
               transition: "opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s",
             }}
           >
-            Tired of AI getting your startup wrong? Rowana automatically structures your content so LLMs like ChatGPT &
-            Perplexity can <strong>find, understand, and accurately represent</strong> your innovation.
+            Tired of AI getting your startup wrong? Rowana <strong>analyzes, optimizes, and structures</strong> your web content, ensuring
+            LLMs like ChatGPT & Perplexity can <strong>find, understand, and accurately represent</strong> your innovation.
           </p>
         </div>
       </div>
