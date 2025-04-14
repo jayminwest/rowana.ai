@@ -52,8 +52,8 @@ export default function Home() {
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center lowercase"> {/* Reduced bottom margin */}
             ai is the new front door. is yours locked?
           </h2>
-          {/* Added Sub-headline/Stat */}
-          <p className="text-base italic text-muted-foreground mb-6 text-center"> {/* Added margin below sub-headline */}
+          {/* Added Sub-headline/Stat - Made more prominent */}
+          <p className="text-lg font-semibold text-primary mb-6 text-center"> {/* Increased size, changed color, made bold, removed italic */}
             "Traditional search engine volume will drop by 25% by 2026, due to the rise of AI chatbots and other virtual agents." - Gartner
           </p>
           {/* Use text-muted-foreground */}
