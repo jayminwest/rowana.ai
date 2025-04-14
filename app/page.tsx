@@ -49,9 +49,13 @@ export default function Home() {
       {/* Problem Section - Consistent padding, bg-card for contrast */}
       <AnimatedSection className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="max-w-3xl mx-auto bg-card p-8 rounded-lg"> {/* Added padding inside card */}
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center lowercase">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center lowercase"> {/* Reduced bottom margin */}
             ai is the new front door. is yours locked?
           </h2>
+          {/* Added Sub-headline/Stat */}
+          <p className="text-base italic text-muted-foreground mb-6 text-center"> {/* Added margin below sub-headline */}
+            "Traditional search engine volume will drop by 25% by 2026, due to the rise of AI chatbots and other virtual agents." - Gartner
+          </p>
           {/* Use text-muted-foreground */}
           <p className="text-lg text-muted-foreground">
             How do you <strong>know</strong> if AI truly understands your website? Without the right signals, LLMs
