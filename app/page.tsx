@@ -59,8 +59,8 @@ export default function Home() {
           {/* Use text-muted-foreground */}
           <p className="text-lg text-muted-foreground">
             How do you <strong>know</strong> if AI truly understands your website? Without the right signals, LLMs
-            misinterpret, misrepresent, or simply ignore your content. This isn't just traditional SEO; it's about ensuring
-            <strong>accuracy</strong> in the new AI-driven answer engines. Don't let a confused AI bury your brand or become your unintended
+            misinterpret, misrepresent, or simply ignore your content. This isn't just traditional SEO; it's about ensuring 
+            <strong> accuracy</strong> in the new AI-driven answer engines. Don't let a confused AI bury your brand or become your unintended
             spokesperson. As users turn to AI for answers, inaccurate representation is a growing risk.
           </p>
         </div>
